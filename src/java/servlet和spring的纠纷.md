@@ -11,14 +11,14 @@
 
 - 解决
 	1. 通过重写HttpServlet的init()方法
-```
-@Override
-public void init() throws ServletException {
-	super.init();
-	WebApplicationContext wtx =  WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-	wtx.getAutowireCapableBeanFactory().autowireBean(this);
-}
-```
+	```
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		WebApplicationContext wtx =  WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+		wtx.getAutowireCapableBeanFactory().autowireBean(this);
+	}
+	```
 
 	2. 利用spring的显示配置装配机制，在方法被调用时再从spring容器中读取bean
 		1. 通过xml文件将配置加载到IOC容器中
